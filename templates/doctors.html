@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Doctors | Smart Clinic</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="navbar">
+    <a href="/" class="brand">✚ Smart Clinic</a>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/doctors">Doctors</a>
+        <a href="/appointments">My Appointments</a>
+        <form action="/logout" method="POST" style="display:inline;">
+            <button type="submit">Logout</button>
+        </form>
+    </nav>
+</header>
+
+<main class="container">
+    <h1>Find Your Doctor</h1>
+    <p>Choose a specialist and book your appointment.</p>
+
+    <form method="GET" action="/doctors">
+        <input type="text" name="q"
+               placeholder="Search doctor or specialization..."
+               value="{{ query }}">
+        <button type="submit">Search</button>
+    </form>
+
+    <section class="doctor-grid">
+        {% for doctor in doctors %}
+        <article class="card">
+            <h2>{{ doctor.name }}</h2>
+            <p>{{ doctor.specialization }}</p>
+            <p class="status">Available</p>
+            <a href="{{ url_for('book_appointment', doctor_id=doctor.id) }}">
+                <button type="button">Book Appointment</button>
+            </a>
+        </article>
+        {% else %}
+        <p>No doctors found. Try another search.</p>
+        {% endfor %}
+    </section>
+</main>
+
+</body>
+</html>

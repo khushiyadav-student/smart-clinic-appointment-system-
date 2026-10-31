@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Smart Clinic</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="brand">✚ Smart Clinic</a>
+        <nav><a href="/">Home</a><a href="/doctors">Find Doctors</a><a href="/register">Create Account</a></nav>
+    </header>
+
+    <main class="form-page">
+        <section class="form-card">
+            <span class="eyebrow">WELCOME BACK</span>
+            <h1>Patient login</h1>
+            <p>Log in to manage your clinic appointments.</p>
+
+            {% for category, message in get_flashed_messages(with_categories=true) %}
+                <div class="alert {{ category }}">{{ message }}</div>
+            {% endfor %}
+
+            <form method="POST" action="/login">
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" autocomplete="email" required placeholder="you@example.com">
+
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" autocomplete="current-password" required placeholder="Enter your password">
+
+                <button class="primary-btn full-btn" type="submit">Log In</button>
+            </form>
+            <p class="form-bottom">New to Smart Clinic? <a href="/register">Create an account</a></p>
+        </section>
+    </main>
+    <footer><p>Smart Clinic · Student prototype</p></footer>
+</body>
+</html>

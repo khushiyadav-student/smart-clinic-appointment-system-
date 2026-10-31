@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment | Smart Clinic</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <a href="/" class="brand">✚ Smart Clinic</a>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/doctors">Doctors</a>
+            <a href="/appointments">My Appointments</a>
+        </nav>
+    </header>
+
+    <main class="container">
+
+        <h1>Book Your Appointment</h1>
+        <p>Schedule your consultation with our specialist.</p>
+
+        <div class="card">
+
+            <h2>{{ doctor.name }}</h2>
+
+            <p>
+                <strong>Specialization:</strong>
+                {{ doctor.specialization }}
+            </p>
+
+            <p>
+                <strong>Consultation Fees:</strong>
+                ₹{{ doctor.fees }}
+            </p>
+
+            <form method="POST">
+
+                <label for="appointment_date">
+                    Select Appointment Date
+                </label>
+
+                <input
+                    type="date"
+                    id="appointment_date"
+                    name="appointment_date"
+                    min="{{ today }}"
+                    required
+                >
+
+                <label for="appointment_time">
+                    Select Appointment Time
+                </label>
+
+                <input
+                    type="time"
+                    id="appointment_time"
+                    name="appointment_time"
+                    required
+                >
+
+                <button type="submit">
+                    Confirm Appointment
+                </button>
+
+            </form>
+
+            <p>
+                <a href="/doctors">← Back to Doctors</a>
+            </p>
+
+        </div>
+
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account | Smart Clinic</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="navbar">
+        <a href="/" class="brand">✚ Smart Clinic</a>
+        <nav><a href="/">Home</a><a href="/doctors">Find Doctors</a><a href="/login">Login</a></nav>
+    </header>
+
+    <main class="form-page">
+        <section class="form-card">
+            <span class="eyebrow">PATIENT REGISTRATION</span>
+            <h1>Create your account</h1>
+            <p>Register to book and manage your appointments.</p>
+
+            {% for category, message in get_flashed_messages(with_categories=true) %}
+                <div class="alert {{ category }}">{{ message }}</div>
+            {% endfor %}
+
+            <form method="POST" action="/register">
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required maxlength="100" placeholder="Enter your full name">
+
+                <label for="email">Email address</label>
+                <input id="email" name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@example.com">
+
+                <label for="password">Password</label>
+                <input id="password" name="password" type="password" autocomplete="new-password" minlength="8" required placeholder="At least 8 characters">
+
+                <button class="primary-btn full-btn" type="submit">Create Account</button>
+            </form>
+            <p class="form-bottom">Already registered? <a href="/login">Log in</a></p>
+        </section>
+    </main>
+    <footer><p>Smart Clinic · Student prototype</p></footer>
+</body>
+</html>
