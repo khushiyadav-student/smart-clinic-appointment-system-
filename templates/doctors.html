@@ -1,0 +1,3 @@
+{% extends 'base.html' %}{% block title %}Doctors | Smart Clinic{% endblock %}{% block content %}
+<div class="page-head"><div><span class="eyebrow">OUR TEAM</span><h1>Available doctors</h1><p>Choose a specialist and request an appointment.</p></div></div>
+<div class="cards">{% for d in doctors %}<article class="card"><div class="avatar">＋</div><h3>{{ d.name }}</h3><p>{{ d.specialization }}</p><b>₹{{ '%.0f'|format(d.fees) }}</b><div class="card-actions">{% if session.get('role')=='patient' %}<a class="btn btn-small" href="{{ url_for('book',doctor_id=d.id) }}">Book now</a>{% else %}<span class="muted">Login as patient to book</span>{% endif %}</div></article>{% else %}<p>No doctors currently available.</p>{% endfor %}</div>{% endblock %}

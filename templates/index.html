@@ -1,0 +1,6 @@
+{% extends 'base.html' %}{% block title %}Smart Clinic | Home{% endblock %}{% block content %}
+<section class="hero"><div><span class="eyebrow">HEALTHCARE, SIMPLIFIED</span><h1>Your health.<br><em>Our priority.</em></h1><p>Find doctors, request appointments and manage your clinic visits in one simple place.</p>
+<div class="actions"><a class="btn" href="{{ url_for('doctors') if session.get('user_id') else url_for('login') }}">Explore Doctors</a><a class="btn btn-light" href="{{ url_for('register') }}">Create Patient Account</a></div></div>
+<div class="hero-card"><div class="pulse">✚</div><h3>Care that fits your schedule</h3><p>Book a visit without waiting in long queues.</p><div class="mini-stats"><span><b>24/7</b><small>Access</small></span><span><b>Easy</b><small>Booking</small></span><span><b>Secure</b><small>Accounts</small></span></div></div></section>
+<section><div class="section-head"><div><span class="eyebrow">OUR SPECIALISTS</span><h2>Meet our doctors</h2></div><a href="{{ url_for('doctors') if session.get('user_id') else url_for('login') }}">View all →</a></div>
+<div class="cards">{% for d in doctors %}<article class="card"><div class="avatar">＋</div><h3>{{ d.name }}</h3><p>{{ d.specialization }}</p><b>₹{{ '%.0f'|format(d.fees) }} consultation</b></article>{% else %}<p>No doctors available right now.</p>{% endfor %}</div></section>{% endblock %}

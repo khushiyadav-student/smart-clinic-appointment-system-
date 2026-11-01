@@ -1,0 +1,3 @@
+{% extends 'base.html' %}{% block title %}Register | Smart Clinic{% endblock %}{% block content %}
+<div class="auth"><div><span class="eyebrow">PATIENT REGISTRATION</span><h1>Create your account</h1><p>Register to explore doctors and request appointments.</p></div>
+<form class="panel form" method="POST"><label>Full name</label><input name="name" required placeholder="Your full name"><label>Email</label><input type="email" name="email" required placeholder="you@example.com"><label>Password</label><input type="password" name="password" minlength="8" required placeholder="At least 8 characters"><button class="btn">Create account</button><p class="muted">Already registered? <a href="{{ url_for('login') }}">Login</a></p></form></div>{% endblock %}
