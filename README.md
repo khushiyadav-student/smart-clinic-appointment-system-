@@ -4,48 +4,67 @@ A web-based clinic appointment management application developed using Python Fla
 
 ## 📌 Project Overview
 
-The Smart Clinic Appointment System aims to simplify the process of booking and managing medical appointments. It provides a digital platform where patients can interact with clinic services and manage their appointments efficiently.
+The Smart Clinic Appointment System is designed to simplify appointment booking and management by connecting patients, doctors and administrators through a centralized digital platform.
 
-## 🎯 Objectives
+## 🎯 Problem Statement
 
-- Reduce manual appointment booking.
-- Minimize appointment scheduling conflicts.
-- Improve patient and doctor coordination.
-- Maintain appointment records digitally.
-- Provide an easy-to-use interface.
+Traditional clinic appointment systems involve manual booking, long waiting queues, scheduling conflicts and difficulty tracking appointment status. This project aims to make clinic appointment management easier and more organized.
 
 ## ✨ Key Features
 
-- Patient registration and login.
-- Doctor information and availability.
-- Online appointment booking.
-- Appointment management.
-- Database-backed record storage.
-- User-friendly web interface.
+### 👤 Patient Module
+- Patient registration and login
+- View available doctors
+- Book clinic appointments
+- View appointment status
+- Cancel appointments
 
-*Note: Keep only those features that are implemented in your current application.*
+### 🩺 Doctor Module
+- Dedicated doctor dashboard
+- View appointment requests
+- Approve or reject appointments
+- Manage appointment workflow
+
+### 🔐 Admin Module
+- Admin authentication
+- View dashboard statistics
+- Add and manage doctors
+- Update doctor availability
+- Monitor appointments
 
 ## 🛠️ Technology Stack
 
 | Component | Technology |
 |---|---|
-| Frontend | HTML, CSS, JavaScript |
+| Frontend | HTML5, CSS3, JavaScript |
 | Backend | Python, Flask |
 | Database | SQLite |
+| Templates | Jinja2 |
+| Security | Werkzeug |
 | IDE | Visual Studio Code |
-| Version Control | Git & GitHub |
+| Version Control | Git and GitHub |
 
 ## 📂 Project Structure
 
 ```text
-smart-clinic-appointment-system/
-│
+Smart-Clinic/
 ├── app.py
 ├── database.py
 ├── requirements.txt
-├── templates/
+├── README.md
 ├── static/
-└── README.md
+│   └── style.css
+└── templates/
+    ├── base.html
+    ├── index.html
+    ├── login.html
+    ├── register.html
+    ├── patient_dashboard.html
+    ├── doctors.html
+    ├── book.html
+    ├── doctor_dashboard.html
+    ├── admin_dashboard.html
+    └── error.html
 ```
 
 ## ⚙️ Installation and Setup
@@ -68,7 +87,7 @@ cd smart-clinic-appointment-system-
 python -m venv .venv
 ```
 
-4. Activate the environment (Windows):
+4. Activate it on Windows:
 
 ```bash
 .venv\Scripts\activate
@@ -80,33 +99,60 @@ python -m venv .venv
 pip install -r requirements.txt
 ```
 
-6. Run the application:
+6. Set the Flask secret key in PowerShell:
+
+```powershell
+$env:SECRET_KEY="your-local-secret-key"
+```
+
+7. Run the application:
 
 ```bash
 python app.py
 ```
 
-7. Open your browser and visit:
+8. Open your browser:
 
 ```text
 http://127.0.0.1:5000
 ```
 
+## 🔑 Demo Login Credentials
+
+| Role | Email | Password |
+|---|---|---|
+| Admin | admin@smartclinic.com | Admin@123 |
+| Doctor | doctor@smartclinic.com | Doctor@123 |
+| Doctor | doctor2@smartclinic.com | Doctor@123 |
+
+Patients can register through the registration page.
+
+*Demo credentials are for local academic testing only. Change default credentials before public deployment.*
+
+## 🗄️ Database
+
+The application uses SQLite to store patient, doctor and appointment information.
+
 ## 🚀 Future Enhancements
 
-- Email and SMS appointment notifications.
-- Doctor availability calendar.
-- Appointment history and reports.
-- Improved security and authentication.
-- Online deployment.
+- Email and SMS appointment notifications
+- Doctor availability calendar
+- Appointment history and reports
+- Online payment integration
+- Improved security and deployment
 
-## 👩‍💻 Project Information
+## 🎓 Academic Project
 
-**Project:** Smart Clinic Appointment System  
-**Course:** Master of Computer Applications (MCA)  
-**Institution:** Avantika University  
-**Version:** 1.0
+- **Project Name:** Smart Clinic Appointment System
+- **Developer:** Khushi Yadav
+- **Course:** Master of Computer Applications (MCA)
+- **Institution:** Avantika University
+- **Version:** 1.0
 
-## 🔗 GitHub Repository
+## ⚠️ Disclaimer
 
-https://github.com/khushiyadav-student/smart-clinic-appointment-system-
+This project is developed as an academic prototype for learning and demonstration purposes. It is not intended for production healthcare use.
+
+---
+
+⭐ Explore the repository: [Smart Clinic Appointment System](https://github.com/khushiyadav-student/smart-clinic-appointment-system-)
