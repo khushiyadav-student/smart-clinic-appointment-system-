@@ -17,9 +17,10 @@ BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.join(BASE_DIR, "clinic.db")
 
 app = Flask(__name__)
-app.secret_key = os.environ.get(
-    "SECRET_KEY", "smart-clinic-academic-prototype-secret"
-)
+app.secret_key = os.environ.get("SECRET_KEY")
+
+if not app.secret_key:
+    raise RuntimeError("SECRET_KEY environment variable is not set")
 app.config["DATABASE"] = DB_PATH
 
 
@@ -833,12 +834,14 @@ def server_error(error):
 # --------------------------------------------------
 # RUN APPLICATION
 # --------------------------------------------------
+init_db()
 
 if __name__ == "__main__":
-
-    init_db()
-
     print("Smart Clinic database initialized.")
     print("Starting Smart Clinic Appointment System...")
 
-    app.run(debug=True)
+    app.run(
+        host="0.0.0.0",
+        port=int(os.environ.get("PORT", 5000)),
+        debug=False
+    )
