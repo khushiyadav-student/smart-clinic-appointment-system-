@@ -1,0 +1,89 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f8fb;
+    color: #243447;
+}
+
+header {
+    background: #116466;
+    color: white;
+    padding: 24px 8%;
+}
+
+header h1 {
+    margin: 0 0 8px;
+}
+
+header p {
+    margin-bottom: 0;
+}
+
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+    background: white;
+}
+
+.hero h2 {
+    font-size: 32px;
+}
+
+button {
+    background: #116466;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 13px 24px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #0b4849;
+}
+
+#message {
+    color: #116466;
+    font-weight: bold;
+}
+
+.features {
+    padding: 35px 8%;
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    width: 240px;
+    box-shadow: 0 3px 12px #00000010;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #e4eeee;
+}
+
+@media (max-width: 600px) {
+    .hero h2 {
+        font-size: 25px;
+    }
+
+    .card {
+        width: 100%;
+    }
+}
